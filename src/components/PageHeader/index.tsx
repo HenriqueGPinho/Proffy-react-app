@@ -6,9 +6,10 @@ import './styles.css';
 
 interface PageHeaderProps {
   title: string;
+  description?: string;  // ? indica que a prop não é obrigatória
 }
 
-const PageHeader: React.FC<PageHeaderProps> = (props) => {
+const PageHeader: React.FC<PageHeaderProps> = (props) => { // FC: function component
   return (
     <header className="page-header">
         <div className="top-bar-container">
@@ -20,6 +21,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
 
         <div className="header-content">
           <strong>{props.title}</strong>
+          {props.description && <p>{props.description}</p>}
           {props.children}
         </div>
       </header>
